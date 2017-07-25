@@ -1,16 +1,16 @@
 {
-  "name": "react-boilerplate",
+  "name": "universe",
   "version": "3.4.0",
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/osvaldovega/webpack2-react-redux-saga.git"
   },
   "engines": {
     "npm": ">=3",
     "node": ">=5"
   },
-  "author": "Max Stoiber",
+  "author": "Osvaldo Vega",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
