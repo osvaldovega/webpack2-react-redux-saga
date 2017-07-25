@@ -5,11 +5,9 @@ import isObject from 'lodash/isObject';
 import isString from 'lodash/isString';
 import invariant from 'invariant';
 import warning from 'warning';
-import createReducer from 'reducers';
 
-/**
- * Validate the shape of redux store
- */
+import createReducer from '../reducers';
+
 export function checkStore(store) {
   const shape = {
     dispatch: isFunction,
@@ -25,9 +23,6 @@ export function checkStore(store) {
   );
 }
 
-/**
- * Inject an asynchronously loaded reducer
- */
 export function injectAsyncReducer(store, isValid) {
   return function injectReducer(name, asyncReducer) {
     if (!isValid) checkStore(store);
@@ -44,9 +39,6 @@ export function injectAsyncReducer(store, isValid) {
   };
 }
 
-/**
- * Inject an asynchronously loaded saga
- */
 export function injectAsyncSagas(store, isValid) {
   return function injectSagas(sagas) {
     if (!isValid) checkStore(store);
@@ -65,9 +57,6 @@ export function injectAsyncSagas(store, isValid) {
   };
 }
 
-/**
- * Helper for creating injectors
- */
 export function getAsyncInjectors(store) {
   checkStore(store);
 
