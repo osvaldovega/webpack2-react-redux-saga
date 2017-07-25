@@ -2,30 +2,10 @@
  * The global state selectors
  */
 
-import { createSelector } from 'reselect';
-
+// Get the Global state
 const selectGlobal = (state) => state.get('global');
 
-const makeSelectCurrentUser = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('currentUser')
-);
-
-const makeSelectLoading = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('loading')
-);
-
-const makeSelectError = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('error')
-);
-
-const makeSelectRepos = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.getIn(['userData', 'repositories'])
-);
-
+// Get the location State
 const makeSelectLocationState = () => {
   let prevRoutingState;
   let prevRoutingStateJS;
@@ -44,9 +24,5 @@ const makeSelectLocationState = () => {
 
 export {
   selectGlobal,
-  makeSelectCurrentUser,
-  makeSelectLoading,
-  makeSelectError,
-  makeSelectRepos,
   makeSelectLocationState,
 };

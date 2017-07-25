@@ -5,11 +5,18 @@
  * Renders an image, enforcing the usage of the alt="" tag
  */
 
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 function Img(props) {
+  const content = props.src.includes('youtube')
+    ? <iframe className={props.className} src={props.src}></iframe>
+    : <img className={props.className} src={props.src} alt={props.alt} />;
+
   return (
-    <img className={props.className} src={props.src} alt={props.alt} />
+    <div>
+      { content }
+    </div>
   );
 }
 

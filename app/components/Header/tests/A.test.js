@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 
-import A from '../A';
+import A from '../../A';
 
 describe('<A />', () => {
   it('should render an <a> tag', () => {

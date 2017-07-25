@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default styled(Link)`
   display: inline-flex;
-  padding: 0.25em 2em;
+  padding: 0;
   margin: 1em;
   text-decoration: none;
   border-radius: 4px;
@@ -12,14 +12,14 @@ export default styled(Link)`
   user-select: none;
   cursor: pointer;
   outline: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  border: 2px solid #41ADDD;
-  color: #41ADDD;
+  font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #fff;
   
   &:active {
-    background: #41ADDD;
+    text-decoration: underline;
     color: #FFF;
   }
+
+  color: ${(props) => props.active ? 'yellow' : 'white'};
 `;

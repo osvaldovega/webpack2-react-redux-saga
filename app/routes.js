@@ -19,18 +19,27 @@ export default function createRoutes(store) {
   return [
     {
       path: '/',
-      name: 'home',
+      name: 'intro',
+      getComponent(nextState, cb) {
+        import('containers/IntroPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    },
+    {
+      path: '/apod',
+      name: 'apod',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          import('containers/HomePage/reducer'),
-          import('containers/HomePage/sagas'),
-          import('containers/HomePage'),
+          import('containers/ApodPage/reducer'),
+          import('containers/ApodPage/sagas'),
+          import('containers/ApodPage'),
         ]);
 
         const renderRoute = loadModule(cb);
 
         importModules.then(([reducer, sagas, component]) => {
-          injectReducer('home', reducer.default);
+          injectReducer('apod', reducer.default);
           injectSagas(sagas.default);
 
           renderRoute(component);
@@ -38,15 +47,30 @@ export default function createRoutes(store) {
 
         importModules.catch(errorLoading);
       },
-    }, {
-      path: '/features',
-      name: 'features',
+    },
+    {
+      path: '/curiosity',
+      name: 'curiosity',
       getComponent(nextState, cb) {
-        import('containers/FeaturePage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
+        const importModules = Promise.all([
+          import('containers/CuriosityPage/reducer'),
+          import('containers/CuriosityPage/sagas'),
+          import('containers/CuriosityPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('curiosity', reducer.default);
+          injectSagas(sagas.default);
+
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
-    }, {
+    },
+    {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

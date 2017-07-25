@@ -9,22 +9,24 @@ injectGlobal`
   }
 
   body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   body.fontLoaded {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
   #app {
-    background-color: #fafafa;
+    height: 100%;
     min-height: 100%;
     min-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -webkit-touch-callout: none;
   }
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: Quicksand, Georgia, Times, 'Times New Roman', serif;
     line-height: 1.5em;
   }
 `;
