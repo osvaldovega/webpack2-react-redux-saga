@@ -39,7 +39,7 @@ export default function createRoutes(store) {
         const renderRoute = loadModule(cb);
 
         importModules.then(([reducer, sagas, component]) => {
-          injectReducer('apod', reducer.default);
+          injectReducer('apodContainer', reducer.default);
           injectSagas(sagas.default);
 
           renderRoute(component);
@@ -61,22 +61,13 @@ export default function createRoutes(store) {
         const renderRoute = loadModule(cb);
 
         importModules.then(([reducer, sagas, component]) => {
-          injectReducer('curiosity', reducer.default);
+          injectReducer('curiosityContainer', reducer.default);
           injectSagas(sagas.default);
 
           renderRoute(component);
         });
 
         importModules.catch(errorLoading);
-      },
-    },
-    {
-      path: '*',
-      name: 'notfound',
-      getComponent(nextState, cb) {
-        import('containers/NotFoundPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
       },
     },
   ];

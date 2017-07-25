@@ -4,7 +4,7 @@
 
 import { createSelector } from 'reselect';
 
-const selectApod = (state) => state.get('apod');
+const selectApod = (state) => state.get('apodContainer');
 
 const selectApodData = () => createSelector(
   selectApod,

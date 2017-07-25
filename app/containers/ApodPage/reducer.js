@@ -17,7 +17,6 @@ import {
   LOAD_APOD_ERROR,
 } from './constants';
 
-// The initial state of the App
 const initialState = fromJS({
   loading: false,
   error: false,

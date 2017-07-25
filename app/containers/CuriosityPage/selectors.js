@@ -4,7 +4,7 @@
 
 import { createSelector } from 'reselect';
 
-const selectCuriosity = (state) => state.get('curiosity');
+const selectCuriosity = (state) => state.get('curiosityContainer');
 
 const selectCuriosityData = () => createSelector(
   selectCuriosity,
