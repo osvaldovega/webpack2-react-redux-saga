@@ -1,12 +1,11 @@
-/**
- *
- * Img.react.js
- *
- * Renders an image, enforcing the usage of the alt="" tag
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+`;
 
 function Img(props) {
   const content = props.src.includes('youtube')
@@ -14,9 +13,9 @@ function Img(props) {
     : <img className={props.className} src={props.src} alt={props.alt} />;
 
   return (
-    <div>
+    <Wrapper>
       { content }
-    </div>
+    </Wrapper>
   );
 }
 
